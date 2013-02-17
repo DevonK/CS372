@@ -1,0 +1,15 @@
+<p>
+  <b>Username:</b>
+  <%= post.username %>
+</p>
+
+<p>
+  <b>Post:</b>
+  <%= post.body %>
+</p>
+
+<p>
+  <%= link_to 'Destroy Post', [post.topic, post],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+</p>

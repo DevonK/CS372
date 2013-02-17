@@ -1,5 +1,7 @@
 GigaBlab::Application.routes.draw do
-  resources :topics
+  resources :topics do
+    resources :posts
+  end
 
 
   root :to => "home#index"

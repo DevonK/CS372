@@ -15,6 +15,13 @@
   <%= @topic.content %>
 </p>
 
+<h2>Posts</h2>
+<%= render @topic.posts %>
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+<h2>Add a post:</h2>
+<%= render "posts/form" %>
+
+<br />
+
+<%= link_to 'Edit Topic', edit_topic_path(@topic) %> |
+<%= link_to 'Back to Topics', topics_path %> |
