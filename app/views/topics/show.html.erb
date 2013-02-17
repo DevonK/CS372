@@ -15,13 +15,17 @@
   <%= @topic.content %>
 </p>
 
+<p>
+  <b>Tags:</b>
+  <%= join_tags(@topic) %>
+</p>
+
 <h2>Posts</h2>
 <%= render @topic.posts %>
 
 <h2>Add a post:</h2>
 <%= render "posts/form" %>
 
-<br />
 
 <%= link_to 'Edit Topic', edit_topic_path(@topic) %> |
 <%= link_to 'Back to Topics', topics_path %> |
