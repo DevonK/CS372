@@ -1,13 +1,11 @@
-defaults: &defaults
-  adapter: mysql2
-  username: ba86c479583555
-  password: 2f406cb0
-  host: localhost
-
 development:
-  <<: *defaults
-  database: giga-blab_development
+  adapter: sqlite3
+  database: db/giga-blab_dev.sqlite3
 
 test:
-  <<: *defaults
-  database: giga-blab_development
+  adapter: sqlite3
+  database: db/giga-blab_test.sqlite3
+
+production:
+  adapter: sqlite3
+  database: db/giga-blab_live.sqlite3
