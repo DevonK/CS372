@@ -41,8 +41,8 @@ before_filter :authenticate_user!
   # POST /topics
   # POST /topics.json
   def create
-    @topic = Topic.new(params[:topic])
-
+    #@topic = Topic.new(params[:topic])
+    @topic = current_user.topics.build(params[:topic])
     respond_to do |format|
       if @topic.save
         format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
@@ -74,11 +74,15 @@ before_filter :authenticate_user!
   # DELETE /topics/1.json
   def destroy
     @topic = Topic.find(params[:id])
-    @topic.destroy
 
     respond_to do |format|
-      format.html { redirect_to topics_url }
-      format.json { head :no_content }
+      if @topic.destroy 
+        format.html { redirect_to @topic, notice: 'Topic was successfully deleted.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @topic.errors, status: :unprocessable_entity }
+      end
     end
   end
 end

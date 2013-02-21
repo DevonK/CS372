@@ -1,8 +1,9 @@
+<p id="notice"><%= notice %></p>
 <h1>Listing topics</h1>
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Username</th>
     <th>Title</th>
     <th>Content</th>
     <th></th>
@@ -12,7 +13,7 @@
 
 <% @topics.each do |topic| %>
   <tr>
-    <td><%= topic.name %></td>
+    <td><%= topic.user.username %></td>
     <td><%= topic.title %></td>
     <td><%= topic.content %></td>
     <td><%= link_to 'Show', topic %></td>
