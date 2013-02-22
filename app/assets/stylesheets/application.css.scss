@@ -1,0 +1,15 @@
+// Example using 'Cerulean' bootswatch
+//
+// First import Bootswatch theme variables http://bit.ly/KIu8IN
+@import 'bootswatch/slate/variables';
+
+// Use Twitter Bootstrap
+@import 'bootstrap';
+
+// Responsive styles go here in case you want them
+@import "bootstrap-responsive";
+
+// And finally Bootswatch style
+@import "bootswatch/slate/bootswatch";
+
+@import 'devise_signin.css.scss'
