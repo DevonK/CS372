@@ -1,27 +1,28 @@
 <h1>Listing topics</h1>
 
-<table>
+
+<table class="table table-hover">
   <tr>
-    <th>Username</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <td>Thread/Author</td>
+    <td>Replies</td>
+    <td>Edit</td>
+    <td>Delete</td>
   </tr>
 
 <% @topics.each do |topic| %>
   <tr>
-    <td><%= topic.user.username %></td>
-    <td><%= topic.title %></td>
-    <td><%= topic.content %></td>
-    <td><%= link_to 'Show', topic %></td>
-    <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-    <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to topic.title, topic %>
+      <br />
+      <%= topic.user.username %></td>
+    <td><%= topic.posts.count %></td>
+    <td><%= link_to 'Edit', edit_topic_path(topic), :class => "btn btn-primary" %></td>
+    <td><%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-warning" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Topic', new_topic_path %>
+<br />
+<br />
+<br />
+<%= link_to 'New Topic', new_topic_path, :class => "btn btn-large btn-success" %>
