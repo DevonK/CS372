@@ -11,14 +11,15 @@
     <td>Delete</td>
   </tr>
 <% @topics.each do |topic| %>
+
   <tr>  
     <td><%= link_to topic.title, topic %>
       <br />
       <%= topic.user.username %></td>
     <td><%= topic.posts.count %></td>
     <!-- Updated at needs to be changed to look at the post instead of the topic -->
-    <td><%= topic.updated_at.strftime('%-d-%-m-%Y') %><br/><%= topic.updated_at.strftime('%H:%M:%S') %></td>
-    <td><%= topic.created_at.strftime('%-d-%-m-%Y') %><br/><%= topic.created_at.strftime('%H:%M:%S') %></td>
+    <td><%= date_helper(topic.updated_at) %></td>
+    <td><%= date_helper(topic.created_at) %></td>
     <td><%= link_to 'Edit', edit_topic_path(topic), :class => "btn btn-primary" %></td>
     <td><%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-warning" %></td>
   </tr>
