@@ -5,16 +5,20 @@
   <tr>
     <td>Thread/Author</td>
     <td>Replies</td>
+    <td>Last Post(Not working)</td>
+    <td>Created</td>
     <td>Edit</td>
     <td>Delete</td>
   </tr>
-
 <% @topics.each do |topic| %>
-  <tr>
+  <tr>  
     <td><%= link_to topic.title, topic %>
       <br />
       <%= topic.user.username %></td>
     <td><%= topic.posts.count %></td>
+    <!-- Updated at needs to be changed to look at the post instead of the topic -->
+    <td><%= topic.updated_at.strftime('%-d-%-m-%Y') %><br/><%= topic.updated_at.strftime('%H:%M:%S') %></td>
+    <td><%= topic.created_at.strftime('%-d-%-m-%Y') %><br/><%= topic.created_at.strftime('%H:%M:%S') %></td>
     <td><%= link_to 'Edit', edit_topic_path(topic), :class => "btn btn-primary" %></td>
     <td><%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-warning" %></td>
   </tr>
