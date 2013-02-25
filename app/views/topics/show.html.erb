@@ -1,31 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="row-fluid">
+  <div class="offset1 span12">
+    <h3>
+      <%= @topic.title %>
+    </h3>
+  </div>
+</div>
+<div class="row-fluid ">
+  <div class="offset1 span10 timestamp full-border">
+        <%= @topic.created_at %>  
+  </div>  
+</div>
+<div class="row-fluid">
+  <div class="offset1 span10 full-border">
+    <div class="span1 right-border">
+      <p>
+        <%= @topic.user.username %>
+      </p>
+      Joined: <%= time_ago_in_words(@topic.user.created_at)+ " ago" %>
+    </div>
+    <div class="span9">
+      <p class="float-right margin-top">
+        <%= link_to 'Edit Topic', edit_topic_path(@topic), :class => 'btn btn-small btn-info' %>
+        <br />
+        <%= link_to 'Delete Topic', [@topic], :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-small btn-danger' %>
+      </p>
+      <p class="content">
+        <%= @topic.content %>
+      </p>
+      <p>
+        <b>Tags:</b>
+        <%= join_tags(@topic) %>
+      </p>
+    </div>
+  </div>
+</div>
 
-<p>
-  <b>Name:</b>
-  <%= @topic.user.username %>
-</p>
+<%= render @topic.posts %>  
 
-<p>
-  <b>Title:</b>
-  <%= @topic.title %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @topic.content %>
-</p>
-
-<p>
-  <b>Tags:</b>
-  <%= join_tags(@topic) %>
-</p>
-
-<h2>Posts</h2>
-<%= render @topic.posts %>
-
-<h2>Add a post:</h2>
-<%= render "posts/form" %>
-
-
-<%= link_to 'Edit Topic', edit_topic_path(@topic) %> |
-<%= link_to 'Back to Topics', topics_path %> |
+<br />
+<div class="row-fluid">
+  <div class="offset1 span10 offset1">
+    <%= render "posts/form" %>
+    <%= link_to 'Back to Topics', topics_path, :class => "btn" %>
+  </div>
+</div>

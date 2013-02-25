@@ -1,9 +1,6 @@
-<%= form_for([@topic, @topic.posts.build]) do |f| %>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<h2>Reply:</h2>
+  <%= simple_form_for([@topic, @topic.posts.build]) do |f| %>
+    <%= f.text_area :body, :class => 'rounded' %>
+    <br />
+    <%= f.submit nil, :class => 'btn btn-large btn-success' %>
 <% end %>
