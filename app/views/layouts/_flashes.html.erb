@@ -1,17 +1,8 @@
-<% unless flash[:notice].blank? %>
-  <div class="alert-message info">
-    <%= content_tag :div, flash[:notice] %>
-  </div>
-<% end %>
-
-<% unless flash[:error].blank? %>
-  <div class="alert-message error">
-    <%= content_tag :div, flash[:error] %>
-  </div>
-<% end %>
-
-<% unless flash[:alert].blank? %>
-  <div class="alert-message warning">
-    <%= content_tag :div, flash[:alert] %>
-  </div>
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+      <a class="close" data-dismiss="alert">&#215;</a>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    </div>
+  <% end %>
 <% end %>
