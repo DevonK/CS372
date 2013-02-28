@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
   validates_presence_of :username
 	validates_uniqueness_of :username
 
+  # Relationships
+  has_many :topics, :dependent => :destroy
+  has_many :posts, :through => :topics
+
   # Override method to allow login with username or email
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
