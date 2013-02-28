@@ -1,6 +1,6 @@
 <%= devise_error_messages! %>
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }, :html => { :method => :put }, :html => { :class => "form-signin"}) do |f| %>
-  
+
   <h3>Forgot your password?</h3>
   <div><%= f.text_field :login, :autofocus => true, :class => "input-block-level", :placeholder => "Username/Email address" %></div>
 

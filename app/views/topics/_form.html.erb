@@ -1,5 +1,5 @@
 <% @topic.tags.build %>
-<%= simple_form_for(@topic, :html => { :class => "form-signin"}) do |topic_form| %>  
+<%= simple_form_for(@topic, :html => { :class => "form-signin"}) do |topic_form| %>
   <% if @topic.errors.any? %>
   <div id="errorExplanation">
     <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</h2>

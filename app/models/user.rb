@@ -7,16 +7,16 @@ class User < ActiveRecord::Base
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
-  attr_accessor :login         
-         
+  attr_accessor :login
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :email, :password, :password_confirmation,
                   :remember_me, :login
-  
+
   # Validation
   validates_presence_of :username
 	validates_uniqueness_of :username
-  
+
   # Override method to allow login with username or email
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup

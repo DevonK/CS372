@@ -8,7 +8,7 @@ group :development, :test do
 end
 
 # Styles
-gem 'bootstrap-sass'       
+gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'simple_form'
 gem 'jquery-rails'

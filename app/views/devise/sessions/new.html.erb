@@ -1,7 +1,7 @@
 <%= devise_error_messages! %>
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-signin"}) do |f| %>
   <h2 class="form-signin-heading">Please sign in</h2>
-  
+
   <div ><%= f.text_field :login, :autofocus => true, :class => "input-block-level", :placeholder => "Email/Username" %></div>
   <div><%= f.password_field :password, :class => "input-block-level", :placeholder => "Password" %></div>
   <% if devise_mapping.rememberable? -%>
