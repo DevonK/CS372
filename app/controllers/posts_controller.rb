@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+before_filter :authenticate_user!
+load_and_authorize_resource
 
   def create
     @topic = Topic.find(params[:topic_id])
