@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130219224131) do
   end
 
   add_index "posts", ["topic_id"], :name => "index_posts_on_topic_id"
+  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "tags", :force => true do |t|
     t.string   "name"
