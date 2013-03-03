@@ -3,6 +3,7 @@ class Topic < ActiveRecord::Base
 
   validates :title,:content,  :presence => true,
                               :length => { :minimum => 2 }
+  validates :user_id, :presence => true
 
   belongs_to :user
   has_many :posts, :dependent => :destroy

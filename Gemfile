@@ -3,9 +3,6 @@ gem 'rails', '3.2.11'
 
 # Databases
 gem 'mysql2'
-group :development, :test do
-  gem 'sqlite3'
-end
 
 # Styles
 gem 'bootstrap-sass'
@@ -24,3 +21,17 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# Testing and development
+group :development, :test do
+  gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'spork', '~> 0.9.0.rc'
+  gem 'watchr'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'launchy'
+end
