@@ -15,15 +15,15 @@
       </p>
     </div>
     <div class="span9">
-      <%= link_to 'Delete Post', [post.topic, post],
-               :confirm => 'Are you sure?',
-               :method => :delete,
-               :class => 'btn btn-small btn-danger float-right margin-top' %>
+      <% if can? :destroy, post %>
+        <%= link_to 'Delete Post', [post.topic, post],
+                 :confirm => 'Are you sure?',
+                 :method => :delete,
+                 :class => 'btn btn-small btn-danger float-right margin-top' %>
+       <% end %>
       <p class="content">
         <%= post.body %>
       </p>
-
-
     </div>
   </div>
 </div>

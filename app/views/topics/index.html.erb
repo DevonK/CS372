@@ -1,14 +1,12 @@
 <h1>Listing topics</h1>
 
-
 <table class="table table-hover">
   <tr>
     <td>Thread/Author</td>
     <td>Replies</td>
     <td>Last Post(Not working)</td>
     <td>Created</td>
-    <td>Edit</td>
-    <td>Delete</td>
+    <td>Manage</td>
   </tr>
 <% @topics.each do |topic| %>
 
@@ -20,8 +18,12 @@
     <!-- Updated at needs to be changed to look at the post instead of the topic -->
     <td><%= date_helper(topic.updated_at) %></td>
     <td><%= date_helper(topic.created_at) %></td>
-    <td><%= link_to 'Edit', edit_topic_path(topic), :class => "btn btn-primary" %></td>
-    <td><%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-warning" %></td>
+    <td>
+      <% if can? :manage, topic %>
+        <%= link_to 'Edit', edit_topic_path(topic), :class => "btn btn-primary" %>
+        <%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-warning" %>
+      <% end %>
+    </td>
   </tr>
 <% end %>
 </table>

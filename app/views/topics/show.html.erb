@@ -19,11 +19,13 @@
       Joined: <%= time_ago_in_words(@topic.user.created_at)+ " ago" %>
     </div>
     <div class="span9">
-      <p class="float-right margin-top">
-        <%= link_to 'Edit Topic', edit_topic_path(@topic), :class => 'btn btn-small btn-info' %>
-        <br />
-        <%= link_to 'Delete Topic', [@topic], :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-small btn-danger' %>
-      </p>
+      <% if can? :manage, @topic %>
+        <p class="float-right margin-top">
+          <%= link_to 'Edit Topic', edit_topic_path(@topic), :class => 'btn btn-small btn-info' %>
+          <br />
+          <%= link_to 'Delete Topic', [@topic], :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-small btn-danger' %>
+        </p>
+      <% end %>
       <p class="content">
         <%= @topic.content %>
       </p>
