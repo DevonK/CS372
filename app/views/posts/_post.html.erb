@@ -1,7 +1,7 @@
 <br />
 <div class="row-fluid ">
   <div class="offset1 span10 timestamp full-border">
-        <%= date_helper(post.created_at, 0) %>
+        <%= timeago_tag post.created_at, :nojs => true, :force => true %>
   </div>
 </div>
 <div class="row-fluid">
@@ -11,7 +11,7 @@
         <%= post.user.username %>
       </p>
       <p>
-        Joined: <%= time_ago_in_words(@topic.user.created_at)+ " ago" %>
+        Joined: <br /><%= timeago_tag post.user.created_at, :nojs => true, :force => true %>
       </p>
     </div>
     <div class="span9">

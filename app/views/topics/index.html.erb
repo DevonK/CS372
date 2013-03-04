@@ -15,8 +15,8 @@
       <br />
       <%= topic.user.username %></td>
     <td><%= topic.posts.count %></td>
-    <td><%= last_post_helper(topic) %></td>
-    <td><%= date_helper(topic.created_at, 0) %></td>
+    <td><%= timeago_tag last_post_helper(topic), :nojs => true, :force => true %></td>
+    <td><%= timeago_tag topic.created_at, :nojs => true, :force => true %></td>
     <td>
       <% if can? :manage, topic %>
         <%= link_to 'Edit', edit_topic_path(topic), :class => "btn btn-primary" %>

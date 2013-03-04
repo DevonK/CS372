@@ -57,23 +57,9 @@
       to see more useful Rails Best Practices.
     </p>
     <p>
-        Found 25 warnings.
+        Found 20 warnings.
     </p>
     <table>
-          <tr>
-              <td>
-                <input type="checkbox" class="error-type" id="AlwaysAddDbIndexReview" value="AlwaysAddDbIndexReview"
-                />&nbsp;<label for="AlwaysAddDbIndexReview">Always Add Db Index</label>
-              </td>
-              <td>
-                <input type="checkbox" class="error-type" id="NotUseTimeAgoInWordsReview" value="NotUseTimeAgoInWordsReview"
-                />&nbsp;<label for="NotUseTimeAgoInWordsReview">Not Use Time Ago In Words</label>
-              </td>
-              <td>
-                <input type="checkbox" class="error-type" id="SimplifyRenderInControllersReview" value="SimplifyRenderInControllersReview"
-                />&nbsp;<label for="SimplifyRenderInControllersReview">Simplify Render In Controllers</label>
-              </td>
-          </tr>
           <tr>
               <td>
                 <input type="checkbox" class="error-type" id="CheckSaveReturnValueReview" value="CheckSaveReturnValueReview"
@@ -84,8 +70,8 @@
                 />&nbsp;<label for="RemoveUnusedMethodsInModelsReview">Remove Unused Methods In Models</label>
               </td>
               <td>
-                <input type="checkbox" class="error-type" id="UseModelAssociationReview" value="UseModelAssociationReview"
-                />&nbsp;<label for="UseModelAssociationReview">Use Model Association</label>
+                <input type="checkbox" class="error-type" id="SimplifyRenderInControllersReview" value="SimplifyRenderInControllersReview"
+                />&nbsp;<label for="SimplifyRenderInControllersReview">Simplify Render In Controllers</label>
               </td>
           </tr>
           <tr>
@@ -96,6 +82,10 @@
               <td>
                 <input type="checkbox" class="error-type" id="ReplaceInstanceVariableWithLocalVariableReview" value="ReplaceInstanceVariableWithLocalVariableReview"
                 />&nbsp;<label for="ReplaceInstanceVariableWithLocalVariableReview">Replace Instance Variable With Local Variable</label>
+              </td>
+              <td>
+                <input type="checkbox" class="error-type" id="UseModelAssociationReview" value="UseModelAssociationReview"
+                />&nbsp;<label for="UseModelAssociationReview">Use Model Association</label>
               </td>
           </tr>
         <tr>
@@ -114,15 +104,6 @@
         </tr>
       </thead>
       <tbody>
-          <tr class="AlwaysAddDbIndexReview">
-            <td class='filename'>
-                db/schema.rb
-            </td>
-            <td class='line'>16</td>
-            <td class='message'>
-              <a href='http://rails-bestpractices.com/posts/21-always-add-db-index' target='_blank'>always add db index (posts => [user_id])</a>
-            </td>
-          </tr>
           <tr class="CheckSaveReturnValueReview">
             <td class='filename'>
                 db/seeds.rb
@@ -154,7 +135,7 @@
             <td class='filename'>
                 app/views/topics/index.html.erb
             </td>
-            <td class='line'>18</td>
+            <td class='line'>16</td>
             <td class='message'>
               <a href='http://rails-bestpractices.com/posts/15-the-law-of-demeter' target='_blank'>law of demeter</a>
             </td>
@@ -177,38 +158,11 @@
               <a href='http://rails-bestpractices.com/posts/15-the-law-of-demeter' target='_blank'>law of demeter</a>
             </td>
           </tr>
-          <tr class="NotUseTimeAgoInWordsReview">
-            <td class='filename'>
-                app/helpers/topics_helper.rb
-            </td>
-            <td class='line'>7</td>
-            <td class='message'>
-              <a href='http://rails-bestpractices.com/posts/105-not-use-time_ago_in_words' target='_blank'>not use time_ago_in_words</a>
-            </td>
-          </tr>
-          <tr class="NotUseTimeAgoInWordsReview">
-            <td class='filename'>
-                app/views/posts/_post.html.erb
-            </td>
-            <td class='line'>14</td>
-            <td class='message'>
-              <a href='http://rails-bestpractices.com/posts/105-not-use-time_ago_in_words' target='_blank'>not use time_ago_in_words</a>
-            </td>
-          </tr>
-          <tr class="NotUseTimeAgoInWordsReview">
-            <td class='filename'>
-                app/views/topics/show.html.erb
-            </td>
-            <td class='line'>19</td>
-            <td class='message'>
-              <a href='http://rails-bestpractices.com/posts/105-not-use-time_ago_in_words' target='_blank'>not use time_ago_in_words</a>
-            </td>
-          </tr>
           <tr class="RemoveUnusedMethodsInModelsReview">
             <td class='filename'>
                 app/models/user.rb
             </td>
-            <td class='line'>21</td>
+            <td class='line'>25</td>
             <td class='message'>
               <a href='' target='_blank'>remove unused methods (User#find_first_by_auth_conditions)</a>
             </td>
@@ -227,15 +181,6 @@
                 app/views/posts/_form.html.erb
             </td>
             <td class='line'>2</td>
-            <td class='message'>
-              <a href='http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable' target='_blank'>replace instance variable with local variable</a>
-            </td>
-          </tr>
-          <tr class="ReplaceInstanceVariableWithLocalVariableReview">
-            <td class='filename'>
-                app/views/posts/_post.html.erb
-            </td>
-            <td class='line'>14</td>
             <td class='message'>
               <a href='http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable' target='_blank'>replace instance variable with local variable</a>
             </td>
@@ -307,7 +252,7 @@
             <td class='filename'>
                 app/controllers/topics_controller.rb
             </td>
-            <td class='line'>52</td>
+            <td class='line'>53</td>
             <td class='message'>
               <a href='http://rails-bestpractices.com/posts/62-simplify-render-in-controllers' target='_blank'>simplify render in controllers</a>
             </td>
@@ -316,7 +261,7 @@
             <td class='filename'>
                 app/controllers/topics_controller.rb
             </td>
-            <td class='line'>68</td>
+            <td class='line'>69</td>
             <td class='message'>
               <a href='http://rails-bestpractices.com/posts/62-simplify-render-in-controllers' target='_blank'>simplify render in controllers</a>
             </td>
@@ -325,7 +270,7 @@
             <td class='filename'>
                 app/controllers/topics_controller.rb
             </td>
-            <td class='line'>84</td>
+            <td class='line'>85</td>
             <td class='message'>
               <a href='http://rails-bestpractices.com/posts/62-simplify-render-in-controllers' target='_blank'>simplify render in controllers</a>
             </td>

@@ -9,6 +9,7 @@ gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'simple_form'
 gem 'jquery-rails'
+gem 'rails-timeago', '~> 2.0'
 
 # Authentication
 gem 'devise'
