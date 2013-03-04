@@ -14,9 +14,9 @@
   <div class="offset1 span10 full-border">
     <div class="span2 right-border">
       <% if @topic.user.admin? %>
-        <div class="admin"><%= @topic.user_username %></div>
+        <div class="admin"><%= link_to @topic.user_username, user_path(@topic.user_id) %></div>
       <% else %>
-        <div><%= @topic.user_username %></div>
+        <div class="user"><%= link_to @topic.user_username, user_path(@topic.user_id) %></div>
       <% end %>
       <p>
         Joined: <br /><%= timeago_tag @topic.user_created_at, :nojs => true, :force => true %>

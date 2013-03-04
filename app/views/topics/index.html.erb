@@ -14,9 +14,9 @@
     <td><%= link_to topic.title, topic %>
       <br />
       <% if topic.user.admin? %>
-        <div class="admin"><%= topic.user_username %></div>
+        <div class="admin"><%= link_to topic.user_username, user_path(topic.user_id) %></div>
       <% else %>
-        <%= topic.user_username %></td>
+        <div class="user"><%= link_to topic.user_username, user_path(topic.user_id) %></td></div>
       <% end %>
     <td><%= topic.posts.count %></td>
     <td><%= timeago_tag last_post_helper(topic), :nojs => true, :force => true %></td>

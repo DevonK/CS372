@@ -8,9 +8,9 @@
   <div class="offset1 span10 full-border">
     <div class="span2 right-border">
       <% if post.user.admin? %>
-        <div class="admin"><%= post.user_username %></div>
+        <div class="admin"><%= link_to post.user_username, user_path(post.user_id) %></div>
       <% else %>
-        <div><%= post.user_username %></div>
+        <div class="user"><%= link_to post.user_username, user_path(post.user_id) %></div>
       <% end %>
 
       <p>
