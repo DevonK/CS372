@@ -7,9 +7,12 @@
 <div class="row-fluid">
   <div class="offset1 span10 full-border">
     <div class="span1 right-border">
-      <p>
-        <%= post.user.username %>
-      </p>
+      <% if post.user.admin? %>
+        <div class="admin"><%= post.user.username %></div>
+      <% else %>
+        <div><%= post.user.username %></div>
+      <% end %>
+
       <p>
         Joined: <br /><%= timeago_tag post.user.created_at, :nojs => true, :force => true %>
       </p>

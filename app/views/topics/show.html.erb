@@ -13,10 +13,14 @@
 <div class="row-fluid">
   <div class="offset1 span10 full-border">
     <div class="span1 right-border">
+      <% if @topic.user.admin? %>
+        <div class="admin"><%= @topic.user.username %></div>
+      <% else %>
+        <div><%= @topic.user.username %></div>
+      <% end %>
       <p>
-        <%= @topic.user.username %>
+        Joined: <br /><%= timeago_tag @topic.user.created_at, :nojs => true, :force => true %>
       </p>
-      Joined: <br /><%= timeago_tag @topic.user.created_at, :nojs => true, :force => true %>
     </div>
     <div class="span9">
       <% if can? :manage, @topic %>

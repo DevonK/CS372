@@ -13,7 +13,11 @@
   <tr>
     <td><%= link_to topic.title, topic %>
       <br />
-      <%= topic.user.username %></td>
+      <% if topic.user.admin? %>
+        <div class="admin"><%= topic.user.username %></div>
+      <% else %>
+        <%= topic.user.username %></td>
+      <% end %>
     <td><%= topic.posts.count %></td>
     <td><%= timeago_tag last_post_helper(topic), :nojs => true, :force => true %></td>
     <td><%= timeago_tag topic.created_at, :nojs => true, :force => true %></td>
