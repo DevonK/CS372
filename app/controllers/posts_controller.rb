@@ -3,8 +3,8 @@ before_filter :authenticate_user!
 load_and_authorize_resource
 
   def create
-    topic = Topic.find(params[:topic_id])
-    @post = current_user.topic.posts.build(params[:post])
+    @topic = Topic.find(params[:topic_id])
+    @post = @topic.posts.build(params[:post])
       @post.user_id = current_user.id
 
     respond_to do |format|
