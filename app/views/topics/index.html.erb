@@ -4,7 +4,7 @@
   <tr>
     <td>Thread/Author</td>
     <td>Replies</td>
-    <td>Last Post(Not working)</td>
+    <td>Last Post</td>
     <td>Created</td>
     <td>Manage</td>
   </tr>
@@ -16,7 +16,7 @@
       <%= topic.user.username %></td>
     <td><%= topic.posts.count %></td>
     <!-- Updated at needs to be changed to look at the post instead of the topic -->
-    <td><%= date_helper(topic.updated_at) %></td>
+    <td><%= last_post_helper(topic) %></td>
     <td><%= date_helper(topic.created_at) %></td>
     <td>
       <% if can? :manage, topic %>
