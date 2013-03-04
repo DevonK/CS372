@@ -43,14 +43,13 @@ class TopicsController < ApplicationController
   # POST /topics
   # POST /topics.json
   def create
-    #@topic = Topic.new(params[:topic])
     @topic = current_user.topics.build(params[:topic])
     respond_to do |format|
       if @topic.save
         format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
         format.json { render json: @topic, status: :created, location: @topic }
       else
-        format.html { render action: "new" }
+        format.html { render "new" }
         format.json { render json: @topic.errors, status: :unprocessable_entity }
       end
     end
@@ -66,7 +65,7 @@ class TopicsController < ApplicationController
         format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render "edit" }
         format.json { render json: @topic.errors, status: :unprocessable_entity }
       end
     end
@@ -82,7 +81,7 @@ class TopicsController < ApplicationController
         format.html { redirect_to @topic, notice: 'Topic was successfully deleted.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render "edit" }
         format.json { render json: @topic.errors, status: :unprocessable_entity }
       end
     end

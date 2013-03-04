@@ -1,10 +1,10 @@
-<% @topic.tags.build %>
-<%= simple_form_for(@topic, :html => { :class => "form-signin"}) do |topic_form| %>
-  <% if @topic.errors.any? %>
+<% topic.tags.build %>
+<%= simple_form_for(topic, :html => { :class => "form-signin"}) do |topic_form| %>
+  <% if topic.errors.any? %>
   <div id="errorExplanation">
-    <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
+    <h2><%= pluralize(topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
     <ul>
-    <% @topic.errors.full_messages.each do |msg| %>
+    <% topic.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
@@ -21,7 +21,7 @@
     <%= topic_form.submit nil, :class => 'btn btn-success' %>
   </div>
   <% if edit ==1 %>
-    <%= link_to 'Show', @topic, :class => 'btn' %>
+    <%= link_to 'Show', topic, :class => 'btn' %>
   <% end %>
   <%= link_to 'Back', topics_path, :class => 'btn btn-info' %>
 <% end %>

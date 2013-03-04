@@ -8,13 +8,13 @@
   <div class="offset1 span10 full-border">
     <div class="span1 right-border">
       <% if post.user.admin? %>
-        <div class="admin"><%= post.user.username %></div>
+        <div class="admin"><%= post.user_username %></div>
       <% else %>
-        <div><%= post.user.username %></div>
+        <div><%= post.user_username %></div>
       <% end %>
 
       <p>
-        Joined: <br /><%= timeago_tag post.user.created_at, :nojs => true, :force => true %>
+        Joined: <br /><%= timeago_tag post.user_created_at, :nojs => true, :force => true %>
       </p>
     </div>
     <div class="span9">

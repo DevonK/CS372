@@ -3,9 +3,8 @@ before_filter :authenticate_user!
 load_and_authorize_resource
 
   def create
-    @topic = Topic.find(params[:topic_id])
-    #@post = @topic.posts.create(params[:post])
-    @post = @topic.posts.build(params[:post])
+    topic = Topic.find(params[:topic_id])
+    @post = current_user.topic.posts.build(params[:post])
       @post.user_id = current_user.id
 
     respond_to do |format|
@@ -13,7 +12,7 @@ load_and_authorize_resource
         format.html { redirect_to topic_path(@topic), notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post}
       else
-        format.html { render :action => "../topics/show" }
+        format.html { render 'show' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
@@ -23,7 +22,6 @@ load_and_authorize_resource
     @topic = Topic.find(params[:topic_id])
     @post = @topic.posts.find(params[:id])
     @post.destroy
-    #redirect_to topic_path(@topic)
 
    	respond_to do |format|
       if	@post.user.id = current_user.id

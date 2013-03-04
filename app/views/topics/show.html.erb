@@ -14,12 +14,12 @@
   <div class="offset1 span10 full-border">
     <div class="span1 right-border">
       <% if @topic.user.admin? %>
-        <div class="admin"><%= @topic.user.username %></div>
+        <div class="admin"><%= @topic.user_username %></div>
       <% else %>
-        <div><%= @topic.user.username %></div>
+        <div><%= @topic.user_username %></div>
       <% end %>
       <p>
-        Joined: <br /><%= timeago_tag @topic.user.created_at, :nojs => true, :force => true %>
+        Joined: <br /><%= timeago_tag @topic.user_created_at, :nojs => true, :force => true %>
       </p>
     </div>
     <div class="span9">
