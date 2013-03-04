@@ -8,11 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <%= image_tag "/assets/logo7.jpg" %>
+  <%= link_to image_tag('/assets/logo7.jpg') + "", root_path %>
    <div class="container row-fluid">
     <div class="navbar">
       <div class="navbar-inner">
-        <a class="brand" href="#">Giga-Blab</a>
         <ul class="nav">
           <li class="<%= 'active' if params[:controller] == 'home' %>"><%= link_to "Home", root_path %></li>
           <li class="<%= 'active' if params[:controller] == 'topics' %>"><%= link_to "Forum", topics_path %></li>
