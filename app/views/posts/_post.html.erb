@@ -6,7 +6,7 @@
 </div>
 <div class="row-fluid">
   <div class="offset1 span10 full-border">
-    <div class="span1 right-border">
+    <div class="span2 right-border">
       <% if post.user.admin? %>
         <div class="admin"><%= post.user_username %></div>
       <% else %>
@@ -17,7 +17,7 @@
         Joined: <br /><%= timeago_tag post.user_created_at, :nojs => true, :force => true %>
       </p>
     </div>
-    <div class="span9">
+    <div class="span8">
       <% if can? :destroy, post %>
         <%= link_to 'Delete Post', [post.topic, post],
                  :confirm => 'Are you sure?',
