@@ -15,9 +15,8 @@
       <br />
       <%= topic.user.username %></td>
     <td><%= topic.posts.count %></td>
-    <!-- Updated at needs to be changed to look at the post instead of the topic -->
     <td><%= last_post_helper(topic) %></td>
-    <td><%= date_helper(topic.created_at) %></td>
+    <td><%= date_helper(topic.created_at, 0) %></td>
     <td>
       <% if can? :manage, topic %>
         <%= link_to 'Edit', edit_topic_path(topic), :class => "btn btn-primary" %>
