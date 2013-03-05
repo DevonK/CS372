@@ -16,8 +16,12 @@
           <li class="<%= 'active' if params[:controller] == 'home' %>"><%= link_to "Home", root_path %></li>
           <li class="<%= 'active' if params[:controller] == 'topics' %>"><%= link_to "Forum", topics_path %></li>
           <div class="btn-group">
-            <a class="btn btn-inverse" href=/users/<%= current_user.id %>><i class="icon-user icon-white"></i><%= current_user.username %></a>
-            <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+            <% if current_user %>
+              <a class="btn btn-inverse" href=/users/<%= current_user.id %>><i class="icon-user icon-white"></i><%= current_user.username %></a>
+            <% else %>
+              <a class="btn btn-inverse" href="#"><i class="icon-user icon-white"></i>Users</a>
+            <% end %>
+            <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#"><span  class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%= render 'devise/menu/login_items' %></li>
               <li><%= render 'devise/menu/registration_items' %></li>
