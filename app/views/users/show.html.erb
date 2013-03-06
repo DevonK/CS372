@@ -15,6 +15,12 @@
       <p class="content">
         Member since: <%= timeago_tag @user.created_at, :nojs => true, :force => true %>
       </p>
+      <p class="content">
+        Topics Created: <%= @user.topics.size %>
+      </p>
+      <p class="content">
+        Total Posts: <%= @user.topics.size + @user.posts.size %>
+      </p>
     </div>
   </div>
 </div>
