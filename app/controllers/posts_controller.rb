@@ -12,7 +12,7 @@ load_and_authorize_resource
         format.html { redirect_to topic_path(@topic), notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post}
       else
-        format.html { render 'show' }
+        format.html { redirect_to topic_path(@topic), alert: 'Invalid post' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
@@ -24,8 +24,7 @@ load_and_authorize_resource
     @post.destroy
 
    	respond_to do |format|
-      if	@post.user.id = current_user.id
-          @post.destroy
+      if	@post.destroy
           format.html { redirect_to topic_path(@topic), notice: 'Post was successfully deleted.' }
       else
           redirect_to topic_path(@topic)
