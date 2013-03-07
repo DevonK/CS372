@@ -1,0 +1,3 @@
+production:
+  user: <%= ENV['LIBRATO_METRICS_USER'] %>
+  token: <%= ENV['LIBRATO_METRICS_TOKEN'] %>
