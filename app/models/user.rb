@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
   # Relationships
   has_many :topics, :dependent => :destroy
-  has_many :posts, :through => :topics
+  has_many :posts
 
   # Override method to allow login with username or email
   def self.find_first_by_auth_conditions(warden_conditions)
