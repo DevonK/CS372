@@ -2,7 +2,7 @@
     <h2 class="form-signin-heading">Reply:</h2>
     <%= f.text_area :body, :class => 'input-block-level rounded wysihtml5' %>
     <br /><br />
-    <%= f.submit nil, :class => 'btn btn-large btn-success' %>
+    <%= f.submit nil, :class => 'btn btn-large btn-success', :disable_with => "Saving..." %>
     <%= link_to 'Back to Topics', topics_path, :class => "btn btn-large" %>
   <% end %>
 <%= render  :partial => 'shared/wysihtml5' %>

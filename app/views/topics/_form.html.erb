@@ -24,7 +24,7 @@
              :locals => {:form => topic_form} %>
   <br />
   <div class="actions">
-    <%= topic_form.submit nil, :class => 'btn btn-success btn-large' %>
+    <%= topic_form.submit nil, :class => 'btn btn-success btn-large', :disable_with => "Saving..."%>
     <% if edit == 1 %>
       <%= link_to 'Show', topic, :class => 'btn btn-info btn-large' %>
     <% else %>
