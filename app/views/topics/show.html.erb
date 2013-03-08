@@ -28,6 +28,11 @@
         <b>Tags:</b>
         <%= join_tags(@topic) %>
       </p>
+      <p>
+        <% if @topic.updated_at != @topic.created_at %>
+          <div class="edit"> Edited: <%= timeago_tag @topic.updated_at, :nojs => true, :force => true %> </div>
+        <% end %>
+      </p>
     </div>
   </div>
 </div>
