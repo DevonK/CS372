@@ -2,14 +2,17 @@
 
 <%= simple_form_for(topic, :html => { :class => "form-horizontal span6"}) do |topic_form| %>
   <% if topic.errors.any? %>
-  <div id="errorExplanation">
-    <h2><%= pluralize(topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
-    <ul>
-    <% topic.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
+    <div class="alert alert-error">
+      <a class="close" data-dismiss="alert">*</a>
+      <div id="flash_notice">
+        <h5><%= pluralize(topic.errors.count, "error") %> prohibited this topic from being saved:</h5>
+        <ul>
+        <% topic.errors.full_messages.each do |msg| %>
+          <li class="post-form"><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
   <% end %>
 
   <h2 class="form-signin-heading"><%= title %></h2>
