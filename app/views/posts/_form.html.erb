@@ -1,5 +1,5 @@
-  <%= simple_form_for([@topic, @topic.posts.build], :html => { :class => "form-horizontal span5"}) do |f| %>
-    <h2 class="form-signin-heading">Reply:</h2>
+  <%= simple_form_for([resource1, resource2], :html => { :class => "form-horizontal span10"}) do |f| %>
+    <h2 class="form-signin-heading"><%= title %></h2>
     <%= f.text_area :body, :class => 'input-block-level rounded wysihtml5' %>
     <br /><br />
     <%= f.submit nil, :class => 'btn btn-large btn-success', :disable_with => "Saving..." %>

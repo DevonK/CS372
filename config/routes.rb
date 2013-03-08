@@ -5,6 +5,6 @@ GigaBlab::Application.routes.draw do
   match '/users/:id', :to => 'users#show', :as => :user
 
   resources :topics do
-    resources :posts, :only => [:create, :destroy]
+    resources :posts
   end
 end

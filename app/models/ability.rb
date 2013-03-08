@@ -13,6 +13,6 @@ class Ability
   	end
 
   	can :manage, Topic, :user_id => user.id
-    can :destroy, Post, :user_id => user.id
+    can :manage, Post, :user_id => user.id
   end
 end

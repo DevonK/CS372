@@ -37,6 +37,6 @@
 <br />
 <div class="row-fluid">
   <div class="offset1 span10 offset1">
-    <%= render "posts/form" %>
+    <%= render 'posts/form', :title => "Reply: ", :resource1 => @topic, :resource2 => @topic.posts.build %>
   </div>
 </div>

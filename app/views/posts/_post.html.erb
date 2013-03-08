@@ -7,12 +7,16 @@
 <div class="row-fluid">
   <div id="one-true" class="offset1 span10 full-border topic-container">
     <%= render :partial => 'shared/user_bar', :locals =>{ :object => post} %>
-    <% if can? :destroy, post %>
-    <%= link_to 'Delete Post', [post.topic, post],
-             :confirm => 'Are you sure?',
-             :method => :delete,
-             :class => 'btn btn-small btn-danger float-right margin-top margin-right' %>
-   <% end %>
+    <% if can? :manage, post %>
+      <p class='float-right margin-top margin-right' %>
+        <%= link_to 'Edit Post', edit_topic_post_path(@topic, post),
+              :class => 'btn btn-small btn-info' %>
+        <br />
+        <%= link_to 'Delete Post', [post.topic, post],
+              :confirm => 'Are you sure?',
+              :method => :delete,
+              :class => 'btn btn-small btn-danger' %>
+    <% end %>
     <div class="span8 col">
       <p class="content">
         <%= raw post.body %>
