@@ -98,3 +98,10 @@ textarea.rounded-auto-size {
 .user-bar {
   padding: 10px 0px 0px 10px;
 }
+
+#one-true { overflow: hidden; }
+#one-true .col {
+	float: left;
+	margin-bottom: -99999px;
+	padding-bottom: 99999px;
+}

@@ -1,4 +1,4 @@
-    <div class="span2 right-border user-bar">
+    <div class="span2 right-border user-bar col">
       <% if object.user.admin? %>
         <div class="admin"><%= link_to object.user_username, user_path(object.user_id) %></div>
       <% else %>
