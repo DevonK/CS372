@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require rails-timeago
+//= require bootstrap-wysihtml5
 //= require_tree .

@@ -19,6 +19,9 @@ gem 'cancan'
 gem 'newrelic_rpm'
 gem 'librato-rails'
 
+# UI
+gem 'bootstrap-wysihtml5-rails'
+
 # Gems used only for assets and not required in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

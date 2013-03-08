@@ -1,5 +1,6 @@
 <% topic.tags.build %>
-<%= simple_form_for(topic, :html => { :class => "form-signin"}) do |topic_form| %>
+
+<%= simple_form_for(topic, :html => { :class => "form-horizontal span6"}) do |topic_form| %>
   <% if topic.errors.any? %>
   <div id="errorExplanation">
     <h2><%= pluralize(topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
@@ -13,15 +14,19 @@
 
   <h2 class="form-signin-heading"><%= title %></h2>
   <div><%= topic_form.text_field :title, :autofocus => true, :class => "input-block-level", :placeholder => "Title" %></div>
-  <div><%= topic_form.text_area :content, :autofocus => true, :class => "input-block-level rounded-auto-size", :placeholder => "Content" %></div>
+  <br />
+  <div><%= topic_form.text_area :content, :autofocus => true, :class => "input-block-level rounded-auto-size wysihtml5", :placeholder => "Content" %></div>
+  <br />
   <%= render :partial => 'tags/form',
              :locals => {:form => topic_form} %>
-
+  <br />
   <div class="actions">
-    <%= topic_form.submit nil, :class => 'btn btn-success' %>
+    <%= topic_form.submit nil, :class => 'btn btn-success btn-large' %>
+    <% if edit == 1 %>
+      <%= link_to 'Show', topic, :class => 'btn btn-info btn-large' %>
+    <% else %>
+      <%= link_to 'Back', topics_path, :class => 'btn btn-info btn-large' %>
+    <% end %>
   </div>
-  <% if edit ==1 %>
-    <%= link_to 'Show', topic, :class => 'btn' %>
-  <% end %>
-  <%= link_to 'Back', topics_path, :class => 'btn btn-info' %>
+<%= render  :partial => 'shared/wysihtml5' %>
 <% end %>

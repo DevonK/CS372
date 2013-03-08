@@ -1,0 +1,10 @@
+    <div class="span2 right-border">
+      <% if object.user.admin? %>
+        <div class="admin"><%= link_to object.user_username, user_path(object.user_id) %></div>
+      <% else %>
+        <div class="user"><%= link_to object.user_username, user_path(object.user_id) %></div>
+      <% end %>
+      <p>
+        Joined: <br /><%= timeago_tag object.user_created_at, :nojs => true, :force => true %>
+      </p>
+    </div>

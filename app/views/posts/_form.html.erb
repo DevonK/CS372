@@ -1,6 +1,8 @@
-<h2>Reply:</h2>
-  <%= simple_form_for([@topic, @topic.posts.build]) do |f| %>
-    <%= f.text_area :body, :class => 'rounded' %>
-    <br />
+  <%= simple_form_for([@topic, @topic.posts.build], :html => { :class => "form-horizontal span5"}) do |f| %>
+    <h2 class="form-signin-heading">Reply:</h2>
+    <%= f.text_area :body, :class => 'input-block-level rounded wysihtml5' %>
+    <br /><br />
     <%= f.submit nil, :class => 'btn btn-large btn-success' %>
-<% end %>
+    <%= link_to 'Back to Topics', topics_path, :class => "btn btn-large" %>
+  <% end %>
+<%= render  :partial => 'shared/wysihtml5' %>
