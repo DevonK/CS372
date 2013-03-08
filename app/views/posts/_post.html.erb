@@ -5,14 +5,15 @@
   </div>
 </div>
 <div class="row-fluid">
-  <div class="offset1 span10 full-border">
+  <div class="offset1 span10 full-border topic-container">
+    <%= render :partial => 'shared/user_bar', :locals =>{ :object => post} %>
     <% if can? :destroy, post %>
     <%= link_to 'Delete Post', [post.topic, post],
              :confirm => 'Are you sure?',
              :method => :delete,
-             :class => 'btn btn-small btn-danger float-right margin-top' %>
+             :class => 'btn btn-small btn-danger float-right margin-top margin-right' %>
    <% end %>
-    <%= render :partial => 'shared/user_bar', :locals =>{ :object => post} %>
+
     <div class="span8">
 
       <p class="content">

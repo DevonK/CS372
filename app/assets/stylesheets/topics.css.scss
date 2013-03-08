@@ -50,6 +50,7 @@ p.content {
   margin: 5px 0px;
 }
 
+
 .timestamp {
   background-color: #32373c;
   height: 10%;
@@ -57,8 +58,13 @@ p.content {
 }
 
 .margin-top{
-  margin-top: 5px;
+  margin-top: 10px;
 }
+
+.margin-right{
+  margin-right: 10px;
+}
+
 
 textarea.rounded-auto-size {
   color: #000;
@@ -87,4 +93,8 @@ textarea.rounded-auto-size {
 
 .user a {
   color: blue;
+}
+
+.user-bar {
+  padding: 10px 0px 0px 10px;
 }

@@ -12,14 +12,15 @@
 </div>
 <div class="row-fluid">
   <div class="offset1 span10 full-border">
+    <%= render :partial => 'shared/user_bar', :locals =>{ :object => @topic} %>
     <% if can? :manage, @topic %>
-      <p class="float-right margin-top">
-      <%= link_to 'Edit Topic', edit_topic_path(@topic), :class => 'btn btn-small btn-info' %>
-      <br />
-      <%= link_to 'Delete Topic', [@topic], :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-small btn-danger' %>
+      <p class='float-right margin-top margin-right' %>
+        <%= link_to 'Edit Topic', edit_topic_path(@topic), :class => 'btn btn-small btn-info' %>
+        <br />
+        <%= link_to 'Delete Topic', [@topic], :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-small btn-danger' %>
       </p>
     <% end %>
-    <%= render :partial => 'shared/user_bar', :locals =>{ :object => @topic} %>
+
     <div class="span8">
 
       <p class="content">
