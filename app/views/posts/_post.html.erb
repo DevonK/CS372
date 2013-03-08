@@ -20,6 +20,10 @@
     <div class="span8 col">
       <p class="content">
         <%= raw post.body %>
+        <br />
+        <% if post.updated_at != post.created_at %>
+          <div class="edit"> Edited: <%= timeago_tag post.updated_at, :nojs => true, :force => true %> </div>
+        <% end %>
       </p>
     </div>
   </div>
