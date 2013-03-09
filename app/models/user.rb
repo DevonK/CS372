@@ -30,4 +30,12 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
+
+  def active_for_authentication?
+    super && !self.banned
+  end
+
+  def inactive_message
+    "Your account has been banned!"
+  end
 end
