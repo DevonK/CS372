@@ -9,7 +9,7 @@
     <%= render :partial => 'shared/user_bar', :locals =>{ :object => post} %>
     <% if can? :manage, post %>
       <p class='float-right margin-top margin-right' %>
-        <%= link_to 'Edit Post', edit_topic_post_path(@topic, post),
+        <%= link_to 'Edit Post', edit_topic_post_path(topic, post),
               :class => 'btn btn-small btn-info' %>
         <br />
         <%= link_to 'Delete Post', [post.topic, post],
