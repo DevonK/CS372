@@ -21,9 +21,9 @@ ActiveAdmin.register User do
     if params[:user][:password].blank?
       @user.update_without_password(params[:user], :as => :admin)
     else
-      @user.update_attributes(params[:user], :as => :admin)
+      @user.update_attributes!(params[:user], :as => :admin)
     end
-    if @user.save
+    if @user.save!
       redirect_to :action => :show, :id => @user.id
     else
       render active_admin_template((@user.new_record? ? 'new' : 'edit') + '.html.erb')
