@@ -5,6 +5,8 @@ class Topic < ActiveRecord::Base
   has_many :tags
 
   attr_accessible :content, :title, :tags_attributes
+  attr_accessible :content, :title, :tags_attributes, :user_id, :tag_ids, :as => :admin
+
   validates :title,:content,  :presence => true,
                               :length => { :minimum => 2 }
   validates :user_id, :presence => true

@@ -59,7 +59,6 @@ class TopicsController < ApplicationController
   # PUT /topics/1.json
   def update
     @topic = Topic.find(params[:id])
-
     respond_to do |format|
       if @topic.update_attributes(params[:topic])
         format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }

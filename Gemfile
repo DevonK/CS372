@@ -15,6 +15,9 @@ gem 'rails-timeago', '~> 2.0'
 gem 'devise'
 gem 'cancan'
 
+# Admin GUI
+gem 'activeadmin'
+
 # Heroku logging
 gem 'newrelic_rpm'
 gem 'librato-rails'
@@ -26,6 +29,7 @@ gem 'bootstrap-wysihtml5-rails'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'coffee-script-source', '~> 1.4.0'
   gem 'uglifier', '>= 1.0.3'
 end
 

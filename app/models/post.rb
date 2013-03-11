@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   delegate :username, :created_at, :to => :user, :prefix => true
 
   attr_accessible :body
+  attr_accessible :body, :topic_id, :user_id, :as => :admin
   validates :body,  :presence => true,
                     :length => { :minimum => 5 }
   validates :topic_id, :user_id, :presence => true
