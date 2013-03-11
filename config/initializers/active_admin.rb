@@ -156,4 +156,7 @@ module ActiveAdmin
   ResourceController.class_eval do
     with_role :admin
   end
+  Comment.class_eval do
+    attr_accessible :resource, :resource_id, :resource_type, :body, :namespace, :as => [ :admin ]
+  end
 end
