@@ -8,7 +8,7 @@ ActiveAdmin.register Topic do
       f.input :user
       f.input :title
       f.input :content
-      f.tag_form :tags
+      f.input :tags
     end
     f.buttons
   end
