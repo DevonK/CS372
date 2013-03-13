@@ -63,4 +63,32 @@ load_and_authorize_resource
     end
   end
 
+  def flag
+    @topic = Topic.find(params[:topic_id])
+    @post = Post.find(params[:id])
+
+    respond_to do |format|
+      if @post.update_column(:flagged, 'true')
+        format.html { redirect_to @topic, notice: 'Post was flagged' }
+        format.json { head :no_content }
+      else
+        format.html { render :partial => "post" }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def unflag
+    @post = Post.find(params[:id])
+
+    respond_to do |format|
+      if @post.update_column(:flagged, 'false')
+        format.html { redirect_to admin_post_path, notice: 'Post was unflagged' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to admin_post_path, alert: 'ERROR' }
+        format.json { render json: admin_post_path, status: :unprocessable_entity }
+      end
+    end
+  end
 end

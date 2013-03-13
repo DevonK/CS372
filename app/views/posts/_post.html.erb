@@ -2,6 +2,9 @@
 <div class="row-fluid ">
   <div class="offset1 span10 timestamp full-border">
         <%= timeago_tag post.created_at, :nojs => true, :force => true %>
+        <%= link_to flag_topic_post_path(topic, post), :method => :post, :class => 'float-right',:placeholder => 'text', :title => "Flag this post for the administrators to review" do %>
+          <i class="icon-flag icon-white"></i>
+        <% end %>
   </div>
 </div>
 <div class="row-fluid">

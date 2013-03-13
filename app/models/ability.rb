@@ -9,10 +9,10 @@ class Ability
     if user.admin?
   		can :manage, :all
     else
-      can [:read, :create], [Topic, Post]
+      can [:read, :create, :flag], [Topic, Post]
+      can :manage, Topic, :user_id => user.id
+      can :manage, Post, :user_id => user.id
+      cannot :unflag, [Topic, Post]
   	end
-
-  	can :manage, Topic, :user_id => user.id
-    can :manage, Post, :user_id => user.id
   end
 end

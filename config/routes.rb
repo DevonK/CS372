@@ -7,6 +7,15 @@ GigaBlab::Application.routes.draw do
   match '/users/:id', :to => 'users#show', :as => :user
 
   resources :topics do
-    resources :posts, :only => [:show, :create, :edit, :update, :destroy]
+    member do
+      match :flag
+      match :unflag
+    end
+    resources :posts, :only => [:show, :create, :edit, :update, :destroy, :flag] do
+      member do
+        match :flag
+        match :unflag
+      end
+    end
   end
 end

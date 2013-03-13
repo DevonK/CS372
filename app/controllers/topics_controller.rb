@@ -85,4 +85,32 @@ class TopicsController < ApplicationController
       end
     end
   end
+
+  def flag
+    @topic = Topic.find(params[:id])
+
+    respond_to do |format|
+      if @topic.update_column(:flagged, 'true')
+        format.html { redirect_to @topic, notice: 'Topic was flagged' }
+        format.json { head :no_content }
+      else
+        format.html { render "show" }
+        format.json { render json: @topic.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def unflag
+    @topic = Topic.find(params[:id])
+
+    respond_to do |format|
+      if @topic.update_column(:flagged, 'false')
+        format.html { redirect_to admin_topic_path, notice: 'Topic was unflagged' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to admin_topic_path, alert: 'ERROR' }
+        format.json { render json: admin_topic_path, status: :unprocessable_entity }
+      end
+    end
+  end
 end
