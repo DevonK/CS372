@@ -38,7 +38,7 @@ ActiveAdmin.register_page "Dashboard" do
         column do
           panel "Flagged Topics" do
             ul do
-              Topic.where(:flagged => true).map do |topic|
+              Topic.where(:flagged => 'true').map do |topic|
                li link_to(topic.title, admin_topic_path(topic))
              end
             end
