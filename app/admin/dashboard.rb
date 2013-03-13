@@ -15,6 +15,16 @@ ActiveAdmin.register_page "Dashboard" do
          end
        end
 
+       column do
+         panel "Recent Posts" do
+          ul do
+             Post.last(5).map do |post|
+               li link_to(post.body[0..50]+ "...", admin_post_path(post))
+             end
+           end
+         end
+       end
+
         column do
           panel "Recent Users" do
             ul do
@@ -24,6 +34,27 @@ ActiveAdmin.register_page "Dashboard" do
             end
           end
         end
-      end
+
+        column do
+          panel "Flagged Topics" do
+            ul do
+              Topic.where(:flagged => true).map do |topic|
+               li link_to(topic.title, admin_topic_path(topic))
+             end
+            end
+          end
+        end
+
+        column do
+          panel "Flagged Posts" do
+            ul do
+              Post.where(:flagged => 'true').map do |post|
+                li link_to(post.body[0..50]+ "...", admin_post_path(post))
+                end
+            end
+          end
+        end
+
+    end
   end
 end
