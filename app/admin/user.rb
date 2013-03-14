@@ -16,6 +16,52 @@ ActiveAdmin.register User do
     f.buttons
   end
 
+  show do |user|
+    attributes_table do
+    row :id
+    row :username
+    row :email
+    row :current_sign_in_at
+    row :last_sign_in_at
+    row :current_sign_in_ip
+    row :last_sign_in_ip
+    row :created_at
+    row :updated_at
+    row :admin
+    row :banned
+    end
+    active_admin_comments
+  end
+
+  index do |user|
+    selectable_column
+    column "Id" do |user|
+      link_to user.id, admin_user_path(user)
+    end
+    column :username
+    column :email
+    column :current_sign_in_at
+    column :last_sign_in_at
+    column :current_sign_in_ip
+    column :last_sign_in_ip
+    column :created_at
+    column :updated_at
+    column :admin
+    column :banned
+    default_actions
+  end
+
+  filter :username
+  filter :email
+  filter :current_sign_in_at
+  filter :last_sign_in_at
+  filter :current_sign_in_ip
+  filter :last_sign_in_ip
+  filter :created_at
+  filter :updated_at
+  filter :admin
+  filter :banned
+
   create_or_edit = Proc.new {
     @user = User.find_or_create_by_id(params[:id])
     if params[:user][:password].blank?
