@@ -12,7 +12,7 @@ load_and_authorize_resource
         format.html { redirect_to topic_path(@topic), notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post}
       else
-        format.html { redirect_to topic_path(@topic), alert: 'Invalid post' }
+        format.html { redirect_to topic_path(@topic), alert: 'Post is too short (minimum is 5 characters)' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end

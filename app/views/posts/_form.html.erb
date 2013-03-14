@@ -1,4 +1,17 @@
   <%= simple_form_for([resource1, resource2], :html => { :class => "form-horizontal span10"}) do |f| %>
+    <% if resource2.errors.any? %>
+      <div class="alert alert-error">
+        <a class="close" data-dismiss="alert">*</a>
+        <div id="flash_notice">
+          <h5><%= pluralize(resource2.errors.count, "error") %> prohibited this post from being saved:</h5>
+          <ul>
+          <% resource2.errors.full_messages.each do |msg| %>
+            <li class="post-form"><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
     <h2 class="form-signin-heading"><%= title %></h2>
     <%= f.text_area :body, :class => 'input-block-level rounded wysihtml5' %>
     <br /><br />

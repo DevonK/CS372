@@ -11,7 +11,7 @@ GigaBlab::Application.routes.draw do
       match :flag
       match :unflag
     end
-    resources :posts, :only => [:show, :create, :edit, :update, :destroy, :flag] do
+    resources :posts, :only => [:show, :create, :edit, :update, :destroy, :flag, :unflag] do
       member do
         match :flag
         match :unflag
