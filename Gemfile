@@ -20,7 +20,6 @@ gem 'activeadmin'
 
 # Heroku logging
 gem 'newrelic_rpm'
-gem 'librato-rails'
 
 # UI
 gem 'bootstrap-wysihtml5-rails'
@@ -45,5 +44,4 @@ end
 group :test do
   gem 'faker'
   gem 'capybara'
-  gem 'launchy'
 end
