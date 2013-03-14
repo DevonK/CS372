@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
-before_filter :authenticate_user!
-load_and_authorize_resource
+  before_filter :authenticate_user!
+  load_and_authorize_resource
+  respond_to :html, :json
 
   def create
     @topic = Topic.find(params[:topic_id])
@@ -21,7 +22,6 @@ load_and_authorize_resource
   def destroy
     @topic = Topic.find(params[:topic_id])
     @post = @topic.posts.find(params[:id])
-    @post.destroy
 
    	respond_to do |format|
       if	@post.destroy
@@ -56,11 +56,6 @@ load_and_authorize_resource
     @topic = Topic.find(params[:topic_id])
     @post = @topic.posts.build
     @showpost = Post.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
-    end
   end
 
   def flag

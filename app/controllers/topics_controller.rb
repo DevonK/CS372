@@ -1,47 +1,27 @@
 class TopicsController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
+  respond_to :html, :json
 
-  # GET /topics
-  # GET /topics.json
   def index
     @topics = Topic.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @topics }
-    end
+    respond_with @topics
   end
 
-  # GET /topics/1
-  # GET /topics/1.json
   def show
     @topic = Topic.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @topic }
-    end
+    respond_with @topic
   end
 
-  # GET /topics/new
-  # GET /topics/new.json
   def new
     @topic = Topic.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @topic }
-    end
+    respond_with @topic
   end
 
-  # GET /topics/1/edit
   def edit
     @topic = Topic.find(params[:id])
   end
 
-  # POST /topics
-  # POST /topics.json
   def create
     @topic = current_user.topics.build(params[:topic])
     respond_to do |format|
@@ -55,8 +35,6 @@ class TopicsController < ApplicationController
     end
   end
 
-  # PUT /topics/1
-  # PUT /topics/1.json
   def update
     @topic = Topic.find(params[:id])
     respond_to do |format|
@@ -70,8 +48,6 @@ class TopicsController < ApplicationController
     end
   end
 
-  # DELETE /topics/1
-  # DELETE /topics/1.json
   def destroy
     @topic = Topic.find(params[:id])
 
