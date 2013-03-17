@@ -1,7 +1,35 @@
-<h1>Hello, Rails!</h1>
+<h1>Welcome to Giga-Blab!</h3>
 <br />
-<%= link_to "Rails Best Practices", "rails_best_practices_output.html" %>
-<br />
-<%= link_to "GitHub - Commit History", "https://github.com/DevonK/CS372/commits/master" %>
-<br />
-<%= link_to "GitHub - Issue Tracker", "https://github.com/DevonK/CS372/issues?state=open" %>
+
+<div class="row-fluid">
+  <div class="span4">
+      <table class="table table-hover">
+        <th><h3>Latest Users</h3></th>
+        <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user.username, user_path(user) %></td>
+        </tr>
+        <% end %>
+      </table>
+  </div>
+  <div class="span4">
+      <table class="table table-hover">
+        <th><h3>Latest Topics</h3></th>
+        <% @topics.each do |topic| %>
+        <tr>
+          <td><%= link_to topic.title, topic_path(topic) %></td>
+        </tr>
+        <% end %>
+      </table>
+  </div>
+  <div class="span4">
+      <table class="table table-hover">
+        <th><h3>Latest Posts</h3></th>
+        <% @posts.each do |post| %>
+        <tr>
+          <td><%= link_to post.body, topic_post_path(post.topic_id, post) %></td>
+        </tr>
+        <% end %>
+      </table>
+  </div>
+</div>
